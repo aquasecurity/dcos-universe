@@ -71,7 +71,7 @@
         "container_mode": {
           "description": "Run as a container with no docker restart? (experimental)",
           "type": "boolean",
-          "default": false
+          "default": true
         },
         "acceptedResourceRole": {
           "description": "Accepted resource role restriction for service",
