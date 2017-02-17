@@ -1,0 +1,67 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{service.cpus}},
+  "mem": {{service.mem}},
+  "instances": {{service.instances}},
+  "uris":[
+    "{{advanced.dockercfgLocation}}"
+  ],
+  "acceptedResourceRoles": [
+    "{{advanced.acceptedResourceRole}}"
+  ],
+  "constraints": [
+    {{#advanced.extraConstraintName}}
+      ["{{advanced.extraConstraintName}}", "LIKE", "{{advanced.extraConstraintValue}}"],
+    {{/advanced.extraConstraintName}}
+    ["hostname", "UNIQUE"]
+  ],
+  "env": {
+    "SCALOCK_SERVER": "{{environment.scalockGatewayEndpoint}}",
+    "SILENT": "yes",
+    "SCALOCK_TOKEN": "{{environment.scalockToken}}",
+    "AQUA_RUN_WATCHER": "yes",
+    {{#advanced.container_mode}}
+        "AQUA_MODE": "CONTAINER",
+    {{/advanced.container_mode}}
+    "RESTART_CONTAINERS": "{{advanced.restartContainers}}",
+    "SCALOCK_IMAGE": "{{resource.assets.container.docker.agent}}"
+  },
+  "labels": {
+    "AGENT_FILL": "true"
+  },
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{resource.assets.container.docker.agent}}",
+      "forcePullImage": true,
+      "privileged": true,
+      "network": "BRIDGE",
+      "parameters": [
+        {{#advanced.namespaces_enabled}}
+          {
+            "key": "userns",
+            "value": "host"
+          },
+        {{/advanced.namespaces_enabled}}
+        {
+          "key": "volume",
+          "value": "/var/run/docker.sock:/var/run/docker.sock"
+        },
+        {
+          "key": "user",
+          "value": "root"
+        }
+      ]
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": { "value": "./slkinst docker-version | grep \"Aqua Security\"" },
+      "gracePeriodSeconds": 120,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 30,
+      "maxConsecutiveFailures": 5
+    }
+  ]
+}

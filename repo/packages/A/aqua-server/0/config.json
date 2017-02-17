@@ -1,0 +1,193 @@
+{
+  "properties": {
+    "service": {
+      "description": "Overall service configuration for Aqua Web",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Display name for the service on the DC/OS dashboard",
+          "type": "string",
+          "default": "aqua-web"
+        },
+        "cpus": {
+          "description": "CPU allocation for the Aqua Web instance",
+          "type": "number",
+          "default": 0.5,
+          "minimum": 0.05
+        },
+        "mem": {
+          "description": "Memory (MB) allocation for the Aqua Web instance",
+          "type": "number",
+          "default": 256.0,
+          "minimum": 64.0
+        },
+        "acceptedResourceRole": {
+          "description": "Accepted resource role restriction for service",
+          "type": "string",
+          "default": "*"
+        },
+        "port": {
+          "description": "Port to run the Aqua web UI on",
+          "type": "integer",
+          "default": 7374
+        }
+      },
+      "required": [
+        "name",
+        "cpus",
+        "mem",
+        "acceptedResourceRole",
+        "port"
+      ]
+    },
+    "database": {
+      "description": "Primary database configuration for Aqua",
+      "properties": {
+        "database_host": {
+          "description": "Hostname for Aqua's primary database",
+          "type": "string",
+          "default": "aqua-db.marathon.l4lb.thisdcos.directory"
+        },
+        "database_port": {
+          "description": "Port for Aqua's primary database",
+          "type": "integer",
+          "default": 5432
+        },
+        "database_name": {
+          "description": "Name of Aqua's primary database",
+          "type": "string",
+          "default": "scalock"
+        },
+        "database_user": {
+          "description": "Aqua's primary database username",
+          "type": "string",
+          "default": "admin"
+        },
+        "database_password": {
+          "description": "Password for Aqua's primary database user",
+          "type": "string",
+          "default": "password"
+        }
+      },
+      "required": [
+        "database_host",
+        "database_port",
+        "database_name",
+        "database_user",
+        "database_password"
+      ]
+    },
+    "audit_database": {
+      "description": "Provides configuration for Aqua's auditing database",
+      "properties": {
+        "audit_database_host": {
+          "description": "Hostname for Aqua's audit database",
+          "type": "string",
+          "default": "aqua-db.marathon.l4lb.thisdcos.directory"
+        },
+        "audit_database_port": {
+          "description": "Port for Aqua's audit database",
+          "type": "integer",
+          "default": 5432
+        },
+        "audit_database_name": {
+          "description": "Name of Aqua's audit database",
+          "type": "string",
+          "default": "slk_audit"
+        },
+        "audit_database_user": {
+          "description": "Aqua's audit database username",
+          "type": "string",
+          "default": "admin"
+        },
+        "audit_database_password": {
+          "description": "Password for Aqua's audit database user",
+          "type": "string",
+          "default": "password"
+        }
+      },
+      "required": [
+        "audit_database_host",
+        "audit_database_port",
+        "audit_database_name",
+        "audit_database_user",
+        "audit_database_password"
+      ]
+    },
+    "configuration": {
+      "description": "Initial configuration for Aqua",
+      "type": "object",
+      "properties": {
+        "administrator_password": {
+          "description": "Password for initial administrator user in Aqua web interface",
+          "type": "string",
+          "default": "password"
+        },
+        "license_key": {
+          "description": "License key for Aqua",
+          "type": "string"
+        },
+        "log_level": {
+          "description": "Log level for aqua-web",
+          "type": "string",
+          "default": "INFO"
+        },
+        "authorization_header": {
+          "description": "A custom Authorization header to use in the web UI. Do not use Authorization since it conflicts with DC/OS headers.",
+          "type": "string",
+          "default": "aqua-auth"
+        },
+        "scalockKernelModeEnabled": {
+          "description": "Whether Kernel mode should be enabled for the web server",
+          "type": "string",
+          "default": "false"
+        }
+      },
+      "required": [
+        "license_key"
+      ]
+    },
+    "gateway": {
+      "description": "Initial configuration for Aqua",
+      "type": "object",
+      "properties": {
+        "token_gateway": {
+          "description": "Endpoint for communication between components",
+          "type": "string",
+          "default": "aqua-gateway.marathon.l4lb.thisdcos.directory:3622"
+        },
+        "batch_install_name": {
+          "description": "The name to use for the batch install",
+          "type": "string",
+          "default": "mesos-agents"
+        },
+        "secure_token": {
+          "description": "Batch install token value for authorizing registration of agents",
+          "type": "string",
+          "default": "mesos-token"
+        },
+        "enforce_mode": {
+          "description": "Enforce mode for the batch install (y for enforce, n for audit)",
+          "type": "string",
+          "default": "n"
+        }
+      }
+    },
+    "docker": {
+      "type": "object",
+      "description": "Allows you to specify a docker config file for private registries.\nSee [this link](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) for details.",
+      "properties": {
+        "config_enabled": {
+          "description": "Enable use of a docker config tarball.",
+          "type": "boolean",
+          "default": true
+        },
+        "config_location": {
+          "description": "Location of file on Mesos agent nodes.  This must pre-exist.",
+          "type": "string",
+          "default": "file:///etc/docker.tar.gz"
+        }
+      }
+    }
+  }
+}

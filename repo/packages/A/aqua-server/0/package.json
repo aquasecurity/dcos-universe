@@ -1,0 +1,17 @@
+{
+  "packagingVersion": "3.0",
+  "description": "Aqua Container Security Platform - web interface component.\n\n---The Aqua Container Security Platform provides full development-to-production lifecycle controls for securing containerized applications, running on-premises or in the cloud, on Windows or Linux.\n\n\n##### Continuous Image Assurance\n\nScan images for vulnerabilities and malicious behavior, enforce image integrity and permissions from dev to production.\n\n\nRuntime Protection\n\nGain real-time visibility into container activity, enforce policies, and detect and prevent configuration errors, exploits and attacks.\n\n\nDocker Security\n\nScalable security controls for Docker environments that provide optimal, contextualized hardening and runtime protection of the entire stack.\n\n\nNetwork Nano-Segmentation\n\nLock down container network activity to permit only legitimate connections in the application context, limiting the \"blast radius\" in case of an attack.\n\n\nUser Access Control\n\nFine-grained access control that enforces role-based access privileges at the container level, with full end-user accountability.\n\n\nAuditing & Compliance\n\nTrack and audit events in your containerized applications, with real-time logging of granular event data and SIEM integration.\n\n",
+  "framework": false,
+  "maintainer": "support@aquasec.com",
+  "name": "aqua-web",
+  "preInstallNotes": "# Note: \n#### Before installing aqua server, the database must be setup.",
+  "postInstallNotes": "Aqua web has been installed. You can now install the gateway.",
+  "postUninstallNotes": "Aqua web containers have been uninstalled.",
+  "tags": [
+    "aqua",
+    "security"
+  ],
+  "version": "2.0",
+  "website": "https://www.aquasec.com/",
+  "selected": true
+}

@@ -1,0 +1,14 @@
+{
+  "images": {
+    "icon-small": "https://s3-us-west-2.amazonaws.com/aqua-mesos/badges/badge_aqua_small.png",
+    "icon-medium": "https://s3-us-west-2.amazonaws.com/aqua-mesos/badges/gateway.png",
+    "icon-large": "https://s3-us-west-2.amazonaws.com/aqua-mesos/badges/gateway.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "gateway": "aquasec/gateway:2.0"
+      }
+    }
+  }
+}

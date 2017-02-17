@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "packages": [
+    {
+      "versions": {
+        "2.0.0": "0"
+      },
+      "name": "aqua-agent",
+      "currentVersion": "2.0.0",
+      "description": "A security agent to help secure the development-to-production lifecycle of containerized applications.",
+      "framework": false,
+      "tags": [
+        "aqua",
+        "security"
+      ],
+      "selected": false
+    },
+    {
+      "versions": {
+        "2.0.0": "0"
+      },
+      "name": "aqua-gateway",
+      "currentVersion": "2.0.0",
+      "description": "Provides policy distribution and audit collection for Aqua Agents.",
+      "framework": false,
+      "tags": [
+        "aqua",
+        "security"
+      ],
+      "selected": false
+    },
+    {
+      "versions": {
+        "2.0.0": "0"
+      },
+      "name": "aqua-server",
+      "currentVersion": "2.0.0",
+      "description": "A web interface to control the Aqua CSP.",
+      "framework": false,
+      "tags": [
+        "aqua",
+        "security"
+      ],
+      "selected": false
+    }
+  ]
+}

@@ -1,2 +1,2 @@
 # dcos-universe
-Aqua package for DC/OS (experimental)
+Aqua packages for DC/OS (experimental)
