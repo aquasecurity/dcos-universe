@@ -41,7 +41,7 @@
         "scalockToken": {
           "description": "Token for secure communication between components",
           "type": "string",
-          "default": "mesos-agents"
+          "default": "mesos-token"
         },
         "scalockGatewayEndpoint": {
           "description": "Endpoint for communication between components",
