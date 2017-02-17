@@ -20,21 +20,19 @@ However, if you do not set data persistence in advanced install when setting up 
 
 
 Click through to System -> Repositories -> Add Repository
-  Name:  Aquasec
-  URL:   https://github.com/aquasecurity/dcos-universe/archive/master.zip
-  Priority:  1 (or higher number than any existing if you have more than one, to give it lowest priority)
+* Name:  Aquasec
+* URL:   https://github.com/aquasecurity/dcos-universe/archive/master.zip
+* Priority:  1 (or higher number than any existing if you have more than one, to give it lowest priority)
 
 
 ### Deploy database
-	Click Universe -> Postgres -> Advanced Install
-		Change service name in 'service' section to 'aqua-db'
-		Check 'enable' under 'Enable persistent storage' in 'storage' section.
-		Click Review and Install
-		Click Install
+* Click Universe -> Postgres -> Advanced Install
+	* Change service name in 'service' section to 'aqua-db'
+	* Check 'enable' under 'Enable persistent storage' in 'storage' section.
+	* Click Review and Install
+	* Click Install
 
-	Click Services
-	Wait for aqua-db to be in Running state
-
+* Click Services and wait for aqua-db to be in Running state
 
 
 ### Deploy server
