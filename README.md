@@ -2,19 +2,23 @@
 
 Aqua packages for DC/OS (experimental)
 
-If you change the service names from 'aqua-web', 'aqua-db', or 'aqua-gateway', you will need to do 'advanced install' options for all of the packages to change the addresses for the services that will be used, as it will use the DC/OS DNS service name instead of specific IPs for services.  Be sure to set persistent storage for the database component.
-
-The advanced install can also allow you to set non-default passwords (recommended, as defaults are just for demo and are insecure), container mode for agents, set user namespace if supported by OS, number of agents to deploy (number should match the number of nodes in the cluster), resource allocation, location of docker configuration if private registry credentials are needed, and more..
-
-Once you have a desired configuration in the UI, you can download a JSON file for command line deployment with your custom options to avoid filling in the forms again.
-
+This is an example configuration of an Aqua package repo for DC/OS, but this should not be used directly.  Instead, clone this and customize it for your environment.  Test thoroughly in non-production environment for your own use.
 
 ## Quick Deploy on DCOS
 
 
 If you haven't set this up before as 'aqua-web', 'aqua-gateway', and 'aqua-db', and your cluster uses the default 'marathon.l4lb.thisdcos.directory' postfix for apps in the cluster, this is the fastest way to demo the product (though, it uses default passwords which should really be changed).
 
-However, if you do not set data persistence in advanced install when setting up the postgres service, this will not survive a restart of Docker agents.
+**Deployment Notes**
+
+If you change the service names from 'aqua-web', 'aqua-db', or 'aqua-gateway', you will need to do 'advanced install' options for all of the packages to change the addresses for the services that will be used, as it will use the DC/OS DNS service name instead of specific IPs for services.  Be sure to set persistent storage for the database component.
+
+The advanced install can also allow you to set non-default passwords (recommended, as defaults are just for demo and are insecure), container mode for agents, set user namespace if supported by OS, number of agents to deploy (number should match the number of nodes in the cluster), resource allocation, location of docker configuration if private registry credentials are needed, and more..
+
+If you do not set data persistence in advanced install when setting up the postgres service, data will not survive a restart of Docker agents as marathon may redeploy the database container elsewhere in the cluster.
+
+Once you have a desired configuration in the UI, you can download a JSON file for command line deployment with your custom options to avoid filling in the forms again.
+
 
 ### Add Aqua package repository.
 
