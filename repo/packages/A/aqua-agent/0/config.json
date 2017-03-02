@@ -12,7 +12,7 @@
         "cpus": {
           "description": "CPU allocation for the Aqua Agent instance",
           "type": "number",
-          "default": 0.5,
+          "default": 0.15,
           "minimum": 0.05
         },
         "mem": {
@@ -24,46 +24,37 @@
         "instances": {
             "description": "Number of service instances to run in the cluster. A single instance will be run per node in the cluster. Normally, this number should be equal or higher than the number of nodes in the cluster.",
             "type": "integer",
-            "default": 6,
+            "default": 3,
             "minimum": 1
+        },
+        "accepted_resource_roles": {
+          "description": "Accepted resource role restriction for service",
+          "type": "string",
+          "default": "*"
         }
       },
       "required":[
         "name",
         "cpus",
         "mem",
-        "instances"
+        "instances",
+        "accepted_resource_roles"
       ]
     },
-    "environment": {
+    "aqua_config": {
       "description": "Environment configuration for Aqua Agent",
       "properties": {
-        "scalockToken": {
-          "description": "Token for secure communication between components",
+        "aqua_token": {
+          "description": "Token for agent communication with the gateway",
           "type": "string",
           "default": "mesos-token"
         },
-        "scalockGatewayEndpoint": {
+        "gateway_address": {
           "description": "Endpoint for communication between components",
           "type": "string",
           "default": "aqua-gateway.marathon.l4lb.thisdcos.directory:3622"
-        }
-      },
-      "required":[
-        "scalockToken",
-        "scalockGatewayEndpoint"
-      ]
-    },
-    "advanced": {
-      "description": "Advanced configuration for Aqua",
-      "type": "object",
-      "properties": {
-        "dockercfgLocation": {
-          "description": ".dockercfg location on Mesos agent nodes. Aqua containers are private by default; this config must contain permissions to access.",
-          "type": "string",
-          "default": "file:///etc/docker.tar.gz"
         },
-        "restartContainers": {
+        "restart_containers": {
           "description": "Whether the Aqua agent should restart the existing Docker containers. Recommended: no",
           "type": "string",
           "default": "no"
@@ -72,15 +63,40 @@
           "description": "Run as a container with no docker restart? (experimental)",
           "type": "boolean",
           "default": true
+        }
+      },
+      "required":[
+        "aqua_token",
+        "gateway_address"
+      ]
+    },
+    "docker": {
+      "description": "Docker options for agent installation",
+      "type": "object",
+      "properties": {
+        "always_pull_image": {
+          "description": "Always attempt to pull image before deploying",
+          "type": "boolean",
+          "default": false
         },
-        "acceptedResourceRole": {
-          "description": "Accepted resource role restriction for service",
+        "config_enabled": {
+          "description": "Enable use of a docker config tarball.",
+          "type": "boolean",
+          "default": false
+        },
+        "config_location": {
+          "description": "Location of file on Mesos agent nodes.  This must pre-exist.",
           "type": "string",
-          "default": "*"
+          "default": "file:///etc/docker.tar.gz"
         },
         "namespaces_enabled": {
           "default": false,
           "description": "Whether user namespaces is enabled on the host. Must be set to true if so.",
+          "type": "boolean"
+        },
+        "healthcheck_enabled": {
+          "default": false,
+          "description": "Healthchecks are disabled on agent by default due to old Marathon version with bug on common cloud platform defaults. See https://issues.apache.org/jira/browse/MESOS-3136.",
           "type": "boolean"
         }
       }

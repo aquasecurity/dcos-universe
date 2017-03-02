@@ -112,21 +112,21 @@
         "cpus": {
           "description": "CPU allocation for the Aqua Gateway instance",
           "type": "number",
-          "default": 1.0,
-          "minimum": 0.5
+          "default": 0.25,
+          "minimum": 0.10
         },
         "mem": {
           "description": "Memory (MB) allocation for the Aqua Gateway instance",
           "type": "number",
-          "default": 512.0,
-          "minimum": 256.0
+          "default": 256.0,
+          "minimum": 128.0
         },
         "host_healthcheck_port": {
           "description": "The port exposed on the host for healthcheck of this service.  Maps to 80 inside container.",
           "type": "integer",
           "default": 12319
         },
-        "acceptedResourceRole": {
+        "accepted_resource_roles": {
           "description": "Accepted resource role restriction for service",
           "type": "string",
           "default": "*"
@@ -135,17 +135,22 @@
       "required": [
         "cpus",
         "mem",
-        "acceptedResourceRole"
+        "accepted_resource_roles"
       ]
     },
     "docker": {
       "type": "object",
       "description": "Allows you to specify a docker config file for private registries.\nSee [this link](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) for details.",
       "properties": {
+        "always_pull_image": {
+          "description": "Always attempt to pull image before deploying",
+          "type": "boolean",
+          "default": false
+        },
         "config_enabled": {
           "description": "Enable use of a docker config tarball.",
           "type": "boolean",
-          "default": true
+          "default": false
         },
         "config_location": {
           "description": "Location of file on Mesos agent nodes.  This must pre-exist.",

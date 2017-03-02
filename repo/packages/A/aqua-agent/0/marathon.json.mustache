@@ -4,26 +4,25 @@
   "mem": {{service.mem}},
   "instances": {{service.instances}},
   "uris":[
-    "{{advanced.dockercfgLocation}}"
+    {{#docker.config_enabled}}
+      "{{docker.config_location}}"
+    {{/docker.config_enabled}}
   ],
   "acceptedResourceRoles": [
-    "{{advanced.acceptedResourceRole}}"
+    "{{service.accepted_resource_roles}}"
   ],
   "constraints": [
-    {{#advanced.extraConstraintName}}
-      ["{{advanced.extraConstraintName}}", "LIKE", "{{advanced.extraConstraintValue}}"],
-    {{/advanced.extraConstraintName}}
     ["hostname", "UNIQUE"]
   ],
   "env": {
-    "SCALOCK_SERVER": "{{environment.scalockGatewayEndpoint}}",
+    "SCALOCK_SERVER": "{{aqua_config.gateway_address}}",
     "SILENT": "yes",
-    "SCALOCK_TOKEN": "{{environment.scalockToken}}",
+    "AQUA_TOKEN": "{{aqua_config.aqua_token}}",
     "AQUA_RUN_WATCHER": "yes",
-    {{#advanced.container_mode}}
+    {{#aqua_config.container_mode}}
         "AQUA_MODE": "CONTAINER",
-    {{/advanced.container_mode}}
-    "RESTART_CONTAINERS": "{{advanced.restartContainers}}",
+    {{/aqua_config.container_mode}}
+    "RESTART_CONTAINERS": "{{restart_containers.restart_containers}}",
     "SCALOCK_IMAGE": "{{resource.assets.container.docker.agent}}"
   },
   "labels": {
@@ -33,19 +32,28 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.agent}}",
+      {{#docker.always_pull_image}}
       "forcePullImage": true,
+      {{/docker.always_pull_image}}
+      {{^docker.always_pull_image}}
+      "forcePullImage": false,
+      {{/docker.always_pull_image}}
       "privileged": true,
       "network": "BRIDGE",
       "parameters": [
-        {{#advanced.namespaces_enabled}}
+        {{#docker.namespaces_enabled}}
           {
             "key": "userns",
             "value": "host"
           },
-        {{/advanced.namespaces_enabled}}
+        {{/docker.namespaces_enabled}}
         {
           "key": "volume",
           "value": "/var/run/docker.sock:/var/run/docker.sock"
+        },
+        {
+          "key": "env",
+          "value": "MESOS_LAUNCHER_DIR=/usr/libexec/mesos"
         },
         {
           "key": "user",
@@ -55,6 +63,8 @@
     }
   },
   "healthChecks": [
+    {{#docker.healthcheck_enabled}}
+        <!-- See https://issues.apache.org/jira/browse/MESOS-3136 -->
     {
       "protocol": "COMMAND",
       "command": { "value": "./slkinst docker-version | grep \"Aqua Security\"" },
@@ -63,5 +73,6 @@
       "timeoutSeconds": 30,
       "maxConsecutiveFailures": 5
     }
+    {{/docker.healthcheck_enabled}}
   ]
 }

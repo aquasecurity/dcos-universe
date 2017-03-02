@@ -13,31 +13,25 @@
           "description": "CPU allocation for the Aqua Web instance",
           "type": "number",
           "default": 0.5,
-          "minimum": 0.05
+          "minimum": 0.15
         },
         "mem": {
           "description": "Memory (MB) allocation for the Aqua Web instance",
           "type": "number",
-          "default": 256.0,
-          "minimum": 64.0
+          "default": 512.0,
+          "minimum": 256.0
         },
-        "acceptedResourceRole": {
+        "accepted_resource_roles": {
           "description": "Accepted resource role restriction for service",
           "type": "string",
           "default": "*"
-        },
-        "port": {
-          "description": "Port to run the Aqua web UI on",
-          "type": "integer",
-          "default": 7374
         }
       },
       "required": [
         "name",
         "cpus",
         "mem",
-        "acceptedResourceRole",
-        "port"
+        "accepted_resource_roles"
       ]
     },
     "database": {
@@ -168,8 +162,8 @@
         },
         "enforce_mode": {
           "description": "Enforce mode for the batch install (y for enforce, n for audit)",
-          "type": "string",
-          "default": "n"
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -177,10 +171,15 @@
       "type": "object",
       "description": "Allows you to specify a docker config file for private registries.\nSee [this link](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) for details.",
       "properties": {
+        "always_pull_image": {
+          "description": "Always attempt to pull image before deploying",
+          "type": "boolean",
+          "default": false
+        },
         "config_enabled": {
           "description": "Enable use of a docker config tarball.",
           "type": "boolean",
-          "default": true
+          "default": false
         },
         "config_location": {
           "description": "Location of file on Mesos agent nodes.  This must pre-exist.",

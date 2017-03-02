@@ -9,7 +9,7 @@
     {{/docker.config_enabled}}
   ],
   "acceptedResourceRoles": [
-    "{{service.acceptedResourceRole}}"
+    "{{service.accepted_resource_roles}}"
   ],
   "constraints": [
     {{#advanced.extraConstraintName}}
@@ -33,7 +33,9 @@
     "BATCH_INSTALL_TOKEN": "{{gateway.secure_token}}",
     "BATCH_INSTALL_NAME": "{{gateway.batch_install_name}}",
     "BATCH_INSTALL_GATEWAY": "{{gateway.token_gateway}}",
-    "BATCH_INSTALL_ENFORCE_MODE": "{{gateway.enforce_mode}}",
+    {{#gateway.enforce_mode}}
+    "BATCH_INSTALL_ENFORCE_MODE": "y",
+    {{/gateway.enforce_mode}}
     "SCALOCK_LOG_LEVEL": "{{configuration.log_level}}",
     "LICENSE_TOKEN": "{{configuration.license_key}}",
     "AUTHORIZATION_HEADER": "{{configuration.authorization_header}}"
@@ -45,11 +47,16 @@
     "type": "DOCKER",
     "docker": {
       "image": "{{resource.assets.container.docker.server}}",
+      {{#docker.always_pull_image}}
       "forcePullImage": true,
+      {{/docker.always_pull_image}}
+      {{^docker.always_pull_image}}
+      "forcePullImage": false,
+      {{/docker.always_pull_image}}
       "network": "BRIDGE",
       "portMappings": [
         {
-          "hostPort": {{service.port}},
+
           "containerPort": 8080,
           "protocol": "tcp"
         }
@@ -69,7 +76,7 @@
   "healthChecks": [
     {
       "path": "/",
-      "port": {{service.port}},
+      "portIndex": 0,
       "protocol": "HTTP",
       "gracePeriodSeconds": 120,
       "intervalSeconds": 60,
