@@ -171,6 +171,11 @@
       "type": "object",
       "description": "Allows you to specify a docker config file for private registries.\nSee [this link](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) for details.",
       "properties": {
+        "image_name": {
+          "description": "Image name to use",
+          "type": "string",
+          "default": "aquasec/server:2.0"
+        },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
           "type": "boolean",
