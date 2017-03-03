@@ -23,7 +23,7 @@
         "AQUA_MODE": "CONTAINER",
     {{/aqua_config.container_mode}}
     "RESTART_CONTAINERS": "{{restart_containers.restart_containers}}",
-    "SCALOCK_IMAGE": "{{resource.assets.container.docker.agent}}"
+    "SCALOCK_IMAGE": "{{docker.image_name}}"
   },
   "labels": {
     "AGENT_FILL": "true"
@@ -40,6 +40,13 @@
       {{/docker.always_pull_image}}
       "privileged": true,
       "network": "BRIDGE",
+      "portMappings": [
+        {
+          "hostPort": 16466,
+          "containerPort": 16466,
+          "protocol": "tcp"
+        }
+      ],
       "parameters": [
         {{#docker.namespaces_enabled}}
           {

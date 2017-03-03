@@ -71,7 +71,7 @@
       ]
     },
     "docker": {
-      "description": "Docker options for agent installation",
+      "description": "Docker interoperability options.  You may wish to pre-pull images instead of using a config tarball if you specify a registry which requires authentication.",
       "type": "object",
       "properties": {
         "image_name": {
@@ -85,12 +85,12 @@
           "default": false
         },
         "config_enabled": {
-          "description": "Enable use of a docker config tarball.",
+          "description": "Whether or not to use a config tarball for private registries. See https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html for details.",
           "type": "boolean",
           "default": false
         },
         "config_location": {
-          "description": "Location of file on Mesos agent nodes.  This must pre-exist.",
+          "description": "Location of config tarball on Mesos agent nodes.  This must pre-exist.",
           "type": "string",
           "default": "file:///etc/docker.tar.gz"
         },
@@ -101,7 +101,7 @@
         },
         "healthcheck_enabled": {
           "default": false,
-          "description": "Healthchecks are disabled on agent by default due to old Marathon version with bug on common cloud platform defaults. See https://issues.apache.org/jira/browse/MESOS-3136.",
+          "description": "Health checks are disabled on agent by default due to old Marathon version with bug on common cloud platform defaults. See https://issues.apache.org/jira/browse/MESOS-3136.",
           "type": "boolean"
         }
       }

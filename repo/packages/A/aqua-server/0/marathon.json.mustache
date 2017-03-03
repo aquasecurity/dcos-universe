@@ -56,8 +56,18 @@
       "network": "BRIDGE",
       "portMappings": [
         {
-
+          "servicePort": {{service.port}},
+          "hostPort": {{service.port}},
           "containerPort": 8080,
+          "protocol": "tcp",
+          "labels": {
+            "VIP_0": "/aqua-web:{{service.port}}"
+          },
+          "name": "aqua-web"
+        },
+        {
+          "hostPort": 16466,
+          "containerPort": 16466,
           "protocol": "tcp"
         }
       ],

@@ -12,26 +12,32 @@
         "cpus": {
           "description": "CPU allocation for the Aqua Web instance",
           "type": "number",
-          "default": 0.5,
+          "default": 1.0,
           "minimum": 0.15
         },
         "mem": {
           "description": "Memory (MB) allocation for the Aqua Web instance",
           "type": "number",
-          "default": 512.0,
+          "default": 1536.0,
           "minimum": 256.0
         },
         "accepted_resource_roles": {
           "description": "Accepted resource role restriction for service",
           "type": "string",
           "default": "*"
+        },
+        "port": {
+          "description": "Accepted resource role restriction for service",
+          "type": "integer",
+          "default": "8084"
         }
       },
       "required": [
         "name",
         "cpus",
         "mem",
-        "accepted_resource_roles"
+        "accepted_resource_roles",
+        "port"
       ]
     },
     "database": {
@@ -124,7 +130,7 @@
         "log_level": {
           "description": "Log level for aqua-web",
           "type": "string",
-          "default": "INFO"
+          "default": "DEBUG"
         },
         "authorization_header": {
           "description": "A custom Authorization header to use in the web UI. Do not use Authorization since it conflicts with DC/OS headers.",
@@ -169,12 +175,12 @@
     },
     "docker": {
       "type": "object",
-      "description": "Allows you to specify a docker config file for private registries.\nSee [this link](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) for details.",
+      "description": "Docker interoperability options.  You may wish to pre-pull images instead of using a config tarball if you specify a registry which requires authentication.",
       "properties": {
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/server:2.0"
+          "default": "aquasec/server:2.0.1-preview"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
@@ -182,12 +188,12 @@
           "default": false
         },
         "config_enabled": {
-          "description": "Enable use of a docker config tarball.",
+          "description": "Whether or not to use a config tarball for private registries. See https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html for details.",
           "type": "boolean",
           "default": false
         },
         "config_location": {
-          "description": "Location of file on Mesos agent nodes.  This must pre-exist.",
+          "description": "Location of config tarball on Mesos agent nodes.  This must pre-exist.",
           "type": "string",
           "default": "file:///etc/docker.tar.gz"
         }

@@ -140,12 +140,12 @@
     },
     "docker": {
       "type": "object",
-      "description": "Allows you to specify a docker config file for private registries.\nSee [this link](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) for details.",
+      "description": "Docker interoperability options.  You may wish to pre-pull images instead of using a config tarball if you specify a registry which requires authentication.",
       "properties": {
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/gateway:2.0"
+          "default": "aquasec/gateway:2.0.1-preview"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
@@ -153,12 +153,12 @@
           "default": false
         },
         "config_enabled": {
-          "description": "Enable use of a docker config tarball.",
+          "description": "Whether or not to use a config tarball for private registries. See https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html for details.",
           "type": "boolean",
           "default": false
         },
         "config_location": {
-          "description": "Location of file on Mesos agent nodes.  This must pre-exist.",
+          "description": "Location of config tarball on Mesos agent nodes.  This must pre-exist.",
           "type": "string",
           "default": "file:///etc/docker.tar.gz"
         }
