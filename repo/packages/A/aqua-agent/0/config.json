@@ -12,7 +12,7 @@
         "cpus": {
           "description": "CPU allocation for the Aqua Agent instance",
           "type": "number",
-          "default": 0.15,
+          "default": 0.25,
           "minimum": 0.05
         },
         "mem": {
