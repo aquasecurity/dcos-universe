@@ -28,7 +28,7 @@ Add repository to DC/OS user interface by logging into DC/OS interface and brows
 
 Include these details:
 * Name:  Aquasec
-* URL:   https://github.com/aquasecurity/dcos-universe/archive/master.zip
+* URL:   Zip file URL from repository in step one.  Example, for this repo it would be `https://github.com/aquasecurity/dcos-universe/archive/master.zip`
 * Priority:  1 
 
 Click 'Add' to store it.
