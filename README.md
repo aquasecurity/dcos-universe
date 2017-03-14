@@ -6,6 +6,7 @@ This is an example configuration of an Aqua package repo for DC/OS, but this sho
 
 Contents:
 * [Quick Deployment Walk-through](#quick-deployment-walk-through)
+* [Scaling image scanning](#daemon-mode-scanners)
 * [Deployment Considerations](#deployment-considerations) 
 
 ----------
