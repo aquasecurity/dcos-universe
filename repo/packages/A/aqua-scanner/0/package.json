@@ -1,0 +1,18 @@
+{
+  "packagingVersion": "3.0",
+  "description": "Aqua CSP - Scanner",
+  "framework": false,
+  "maintainer": "support@aquasec.com",
+  "name": "aqua-scanner",
+  "description": "Aqua Container Security Platform - parallel scanning component.\n\n\n\nThe Aqua Container Security Platform provides full development-to-production lifecycle controls for securing containerized applications, running on-premises or in the cloud, on Windows or Linux.\n\n\n",
+  "preInstallNotes": "Set up a dedicated scanner user on aqua-web before deploying scanners.",
+  "postInstallNotes": "Aqua scanner has been installed",
+  "postUninstallNotes": "Aqua scanner has been uninstalled.",
+  "tags": [
+    "aqua",
+    "security"
+  ],
+  "version": "2.1",
+  "website": "https://www.aquasec.com/",
+  "selected": true
+}

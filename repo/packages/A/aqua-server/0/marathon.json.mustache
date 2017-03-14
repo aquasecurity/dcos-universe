@@ -28,7 +28,6 @@
     "SCALOCK_AUDIT_DBNAME": "{{audit_database.audit_database_name}}",
     "SCALOCK_AUDIT_DBHOST": "{{audit_database.audit_database_host}}",
     "SCALOCK_AUDIT_DBPORT": "{{audit_database.audit_database_port}}",
-    "SCALOCK_KERNEL_MODE_ENABLED": "{{advanced.scalockKernelModeEnabled}}",
     "ADMIN_PASSWORD": "{{configuration.administrator_password}}",
     "BATCH_INSTALL_TOKEN": "{{gateway.secure_token}}",
     "BATCH_INSTALL_NAME": "{{gateway.batch_install_name}}",
@@ -79,6 +78,10 @@
         {
           "key": "user",
           "value": "root"
+        },
+        {
+          "key": "hostname",
+          "value": "{{service.name}}"
         }
       ]
     }

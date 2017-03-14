@@ -12,7 +12,7 @@
         "cpus": {
           "description": "CPU allocation for the Aqua Agent instance",
           "type": "number",
-          "default": 0.25,
+          "default": 0.15,
           "minimum": 0.05
         },
         "mem": {
@@ -77,7 +77,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/agent:2.0.eof-fix"
+          "default": "aquasec/agent:2.1"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",

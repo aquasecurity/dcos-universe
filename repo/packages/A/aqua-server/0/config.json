@@ -136,11 +136,6 @@
           "description": "A custom Authorization header to use in the web UI. Do not use Authorization since it conflicts with DC/OS headers.",
           "type": "string",
           "default": "aqua-auth"
-        },
-        "scalockKernelModeEnabled": {
-          "description": "Whether Kernel mode should be enabled for the web server",
-          "type": "string",
-          "default": "false"
         }
       },
       "required": [
@@ -180,7 +175,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/server:2.0.1-preview"
+          "default": "aquasec/server:2.1"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",

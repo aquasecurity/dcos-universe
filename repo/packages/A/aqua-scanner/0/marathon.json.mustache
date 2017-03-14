@@ -1,0 +1,50 @@
+{
+  "id": "{{service.name}}",
+  "cpus": {{advanced.cpus}},
+  "mem": {{advanced.mem}},
+  "instances": {{service.instances}},
+  "uris":[
+    {{#docker.config_enabled}}
+      "{{docker.config_location}}"
+    {{/docker.config_enabled}}
+  ],
+  "acceptedResourceRoles": [
+    "{{advanced.accepted_resource_roles}}"
+  ],
+  "constraints": [
+  ],
+  "env": {
+    "SCALOCK_LOG_LEVEL": "DEBUG",
+    "AUTHORIZATION_HEADER": "{{aqua-web.authorization_header}}"
+  },
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{docker.image_name}}",
+      {{#docker.always_pull_image}}
+      "forcePullImage": true,
+      {{/docker.always_pull_image}}
+      {{^docker.always_pull_image}}
+      "forcePullImage": false,
+      {{/docker.always_pull_image}}
+      "privileged": true,
+      "network": "BRIDGE",
+      "portMappings": [
+      ],
+      "parameters": [
+        {
+          "key": "volume",
+          "value": "/var/run/docker.sock:/var/run/docker.sock"
+        }
+      ]
+    }
+  },
+  "args": [
+    "--daemon",
+    "--user", "{{ aqua-web.scanner_user }}",
+    "--password", "{{ aqua-web.scanner_password }}",
+    "--host", "{{ aqua-web.aqua_host }}"
+  ],
+  "healthChecks": [
+  ]
+}

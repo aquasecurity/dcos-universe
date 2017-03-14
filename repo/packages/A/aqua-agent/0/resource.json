@@ -1,13 +1,13 @@
 {
   "images": {
-    "icon-small": "https://s3-us-west-2.amazonaws.com/aqua-mesos/badges/badge_aqua_small.png",
-    "icon-medium": "https://s3-us-west-2.amazonaws.com/aqua-mesos/badges/aqua.png",
-    "icon-large": "https://s3-us-west-2.amazonaws.com/aqua-mesos/badges/aqua.png"
+    "icon-small": "https://s3.amazonaws.com/aqua-dcos/img/badge_aqua_small.png",
+    "icon-medium": "https://s3.amazonaws.com/aqua-dcos/img/badge_aqua_medium.png",
+    "icon-large": "https://s3.amazonaws.com/aqua-dcos/img/badge_aqua_large.png"
   },
   "assets": {
     "container": {
       "docker": {
-        "agent": "aquasec/agent:2.0"
+        "agent": "aquasec/agent:2.1"
       }
     }
   }
