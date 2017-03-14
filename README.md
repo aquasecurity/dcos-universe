@@ -35,7 +35,7 @@ Click 'Add' to store it.
 
 Browse to 'Universe' section from left hand menu.  You should now have new packages:
 
-![Package List](http://i.imgur.com/lJYtQXQ.png)
+![Universe packages](http://i.imgur.com/VgaJxid.png)
 
 
 ## Step three: Deploy database
@@ -62,7 +62,7 @@ When aqua-db is running, click back to Universe section and click 'Install' on '
 
 At a minimum, you will need to enter a license key.
 
-![aqua-web license](http://i.imgur.com/Pc2Nk4S.png)
+![aqua-web license](http://i.imgur.com/FF1TcNW.png)
 
 You will also need to decide how you will get the images into the environment.  The Aqua images are hosted in private Docker Hub repositories, but you are free to push them to an internal registry if you like (this is how most customers deploy).
 
@@ -75,7 +75,7 @@ Essentially, there are three options:
 
 The default option assumes use of pre-pulled images, but you can change the image name to include your registry or enable the docker config file and specify it's location on the 'docker' tab:
 
-![Docker configuration](http://i.imgur.com/8OLe0SI.png)
+![aqua-web docker configuration](http://i.imgur.com/2BdPoKb.png)
 
 This screen will be the same for other images as well.
 
@@ -119,6 +119,45 @@ Login, and click the 'Hosts' section on the left hand side of the page.  You sho
 ![Hosts list](http://i.imgur.com/28S3aG9.png)
 
 
+# Daemon mode scanners
+
+There is an additional package for the daemon-mode scanner-cli that can run standalone from aqua-web to provide greater throughput in image scanning.
+
+Before you deploy, you should set up a dedicated scanning user in the Aqua user interface.  To do this, browse to 
+
+System -> Users.  Click the Create New User button at the top of the page.
+
+On the resulting screen, enter a username, password (twice), and select the 'Scanner' role from the drop-down menu.  Then click 'Save changes' to save the user.
+
+
+![Set up scanner user](http://i.imgur.com/AdlNlRT.png)
+
+The defaults used by the aqua-scanner service are username 'scanner' with password 'scanner123'. 
+
+
+To deploy, you can browse to Universe -> aqua-scanner -> Install.  You can click 'Advanced Installation' to customize the username, password, or docker deployment settings (such as the image name).
+
+The default number of scanner-cli instances is 3.  This can be changed on the first 'service' screen in Advanced Installation:
+
+
+![aqua-scanner advanced install](http://i.imgur.com/Azwfrzy.png)
+
+Click Review and Install, and then Install to deploy.
+
+You can verify that the scanners are deployed by going back to the Aqua console and browsing to Images -> Scan Queue (at top right, with arrow, may say "Scan Queue is empty" if there are no scans in progress).
+
+The scanners will be listed on the right-hand side.  By default there will be 1 scanner included in aqua web.  If you added three in the aqua-scanner service then this will show 4 scanners total.
+
+![Scanner list](http://i.imgur.com/5efZc57.png)
+
+
+In DC/OS you can scale this up and down as needed on the Service page.
+
+To do so, click Service -> aqua-scanner -> Scale button.  You can set this to a higher or lower value to increase or decrease number of scanners.
+
+![Scale scanners](http://i.imgur.com/tR78uqj.png)
+
+It can take several minutes for a scanner to disappear from the scan queue after it is removed, but new scanners will show up immediately.
 
 
 # Deployment Considerations
@@ -136,5 +175,7 @@ Be sure to set persistent storage for the database component.  External persiste
 ### Default passwords
 
 The advanced install can also allow you to set non-default passwords (recommended, as defaults are just for demo and are insecure).
+
+
 
 
