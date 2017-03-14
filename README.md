@@ -40,11 +40,11 @@ Browse to 'Universe' section from left hand menu.  You should now have new packa
 
 ## Step three: Deploy database
 
-Create a Postgres instance named 'aqua-web' by searching for 'Postgres' in the Universe.  
+Create a Postgres instance named 'aqua-db' by searching for 'Postgres' in the Universe.  
 
 ![Postgres](http://i.imgur.com/PZsG8cK.png)
   
-You should change the service name to 'aqua-web':
+You should change the service name to 'aqua-db':
 
 ![aqua-db](http://i.imgur.com/iuErsNe.png)
 
