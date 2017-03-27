@@ -1,6 +1,6 @@
 # aquasec/dcos-universe
 
-Aqua packages for DC/OS (experimental)
+Aqua packages for DC/OS
 
 This is an example configuration of an Aqua package repo for DC/OS, but this should not be used directly.  Instead, clone this and customize it for your environment.  Test thoroughly in non-production environment for your own use.
 
