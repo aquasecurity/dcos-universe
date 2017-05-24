@@ -175,7 +175,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/server:2.1"
+          "default": "aquasec/server:2.1.4"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",

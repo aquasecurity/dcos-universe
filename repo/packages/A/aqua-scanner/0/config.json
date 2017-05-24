@@ -37,11 +37,6 @@
           "description": "Web address for aqua-web",
           "type": "string",
           "default": "http://aqua-web.marathon.l4lb.thisdcos.directory:8084"
-        },
-        "authorization_header": {
-          "description": "Name of authorization header used by aqua-web",
-          "type": "string",
-          "default": "aqua-auth"
         }
       },
       "required": [
@@ -85,7 +80,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/scanner-cli:2.1"
+          "default": "aquasec/scanner-cli:2.1.4"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
