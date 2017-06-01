@@ -57,7 +57,7 @@
         "restart_containers": {
           "description": "Whether the Aqua agent should restart the existing Docker containers.",
           "type": "boolean",
-          "default": "false"
+          "default": false
         },
         "container_mode": {
           "description": "Run as a container with no docker restart? (experimental)",
