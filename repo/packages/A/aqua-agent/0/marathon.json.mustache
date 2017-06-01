@@ -22,7 +22,12 @@
     {{#aqua_config.container_mode}}
         "AQUA_MODE": "CONTAINER",
     {{/aqua_config.container_mode}}
-    "RESTART_CONTAINERS": "{{restart_containers.restart_containers}}",
+    {{#aqua_config.restart_containers}}
+        "RESTART_CONTAINERS": "yes",
+    {{/aqua_config.restart_containers}}
+    {{^aqua_config.restart_containers}}
+      "RESTART_CONTAINERS": "no",
+      {{/aqua_config.restart_containers}}
     "SCALOCK_IMAGE": "{{docker.image_name}}"
   },
   "labels": {

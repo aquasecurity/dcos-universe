@@ -55,9 +55,9 @@
           "default": "aqua-gateway.marathon.l4lb.thisdcos.directory:3622"
         },
         "restart_containers": {
-          "description": "Whether the Aqua agent should restart the existing Docker containers. Recommended: no",
-          "type": "string",
-          "default": "no"
+          "description": "Whether the Aqua agent should restart the existing Docker containers.",
+          "type": "boolean",
+          "default": "false"
         },
         "container_mode": {
           "description": "Run as a container with no docker restart? (experimental)",
