@@ -31,7 +31,7 @@
     "SCALOCK_GATEWAY_PUBLIC_IP": "{{service.public_address}}",
     "SCALOCK_GATEWAY_PRIVATE_IP": "$LIBPROCESS_IP",
     "HEALTH_MONITOR": "0.0.0.0:80",
-    "SCALOCK_LOG_LEVEL": "DEBUG"
+    "SCALOCK_LOG_LEVEL": "{{advanced.log_level}}"
   },
   "container": {
     "type": "DOCKER",

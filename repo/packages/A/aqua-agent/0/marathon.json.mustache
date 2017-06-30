@@ -15,20 +15,15 @@
     ["hostname", "UNIQUE"]
   ],
   "env": {
-    "SCALOCK_SERVER": "{{aqua_config.gateway_address}}",
-    "SILENT": "yes",
+    "AQUA_SERVER": "{{aqua_config.gateway_address}}",
     "AQUA_TOKEN": "{{aqua_config.aqua_token}}",
-    "AQUA_RUN_WATCHER": "yes",
-    {{#aqua_config.container_mode}}
-        "AQUA_MODE": "CONTAINER",
-    {{/aqua_config.container_mode}}
     {{#aqua_config.restart_containers}}
         "RESTART_CONTAINERS": "yes",
     {{/aqua_config.restart_containers}}
     {{^aqua_config.restart_containers}}
       "RESTART_CONTAINERS": "no",
       {{/aqua_config.restart_containers}}
-    "SCALOCK_IMAGE": "{{docker.image_name}}"
+    "SILENT": "yes"
   },
   "labels": {
     "AGENT_FILL": "true"
@@ -57,7 +52,35 @@
         {{/docker.namespaces_enabled}}
         {
           "key": "volume",
-          "value": "/var/run/docker.sock:/var/run/docker.sock"
+          "value": "/var/run:/var/run"
+        },
+        {
+          "key": "volume",
+          "value": "/dev:/dev"
+        },
+        {
+          "key": "volume",
+          "value": "/opt/aquasec:/host/opt/aquasec:ro"
+        },
+        {
+          "key": "volume",
+          "value": "/opt/aquasec/tmp:/opt/aquasec/tmp"
+        },
+        {
+          "key": "volume",
+          "value": "/opt/aquasec/audit:/opt/aquasec/audit"
+        },
+        {
+          "key": "volume",
+          "value": "/proc:/host/proc:ro"
+        },
+        {
+          "key": "volume",
+          "value": "/sys:/host/sys:ro"
+        },
+        {
+          "key": "volume",
+          "value": "/etc:/host/etc:ro"
         },
         {
           "key": "env",
@@ -66,6 +89,10 @@
         {
           "key": "user",
           "value": "root"
+        },
+        {
+          "key": "pid",
+          "value": "host"
         }
       ]
     }
