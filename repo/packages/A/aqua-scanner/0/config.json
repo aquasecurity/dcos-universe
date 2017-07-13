@@ -36,7 +36,7 @@
         "aqua_host": {
           "description": "Web address for aqua-web",
           "type": "string",
-          "default": "http://aqua-web.marathon.l4lb.thisdcos.directory:8084"
+          "default": "http://aqua-web.marathon.l4lb.thisdcos.directory:8080"
         }
       },
       "required": [
