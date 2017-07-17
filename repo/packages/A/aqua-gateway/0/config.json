@@ -150,7 +150,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/gateway:2.5.rc"
+          "default": "aquasec/gateway:2.5"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
