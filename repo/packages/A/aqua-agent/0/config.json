@@ -58,11 +58,6 @@
           "description": "Whether the Aqua agent should restart the existing Docker containers.",
           "type": "boolean",
           "default": false
-        },
-        "container_mode": {
-          "description": "Run as a container with no docker restart? (experimental)",
-          "type": "boolean",
-          "default": true
         }
       },
       "required":[
@@ -77,7 +72,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/agent:2.1.5"
+          "default": "aquasec/agent:2.5"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",

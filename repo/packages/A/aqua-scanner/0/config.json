@@ -36,7 +36,7 @@
         "aqua_host": {
           "description": "Web address for aqua-web",
           "type": "string",
-          "default": "http://aqua-web.marathon.l4lb.thisdcos.directory:8084"
+          "default": "http://aqua-web.marathon.l4lb.thisdcos.directory:8080"
         }
       },
       "required": [
@@ -65,6 +65,11 @@
           "description": "Accepted resource role restriction for service",
           "type": "string",
           "default": "*"
+        },
+        "log_level": {
+          "description": "Log level",
+          "type": "string",
+          "default": "DEBUG"
         }
       },
       "required": [
@@ -80,7 +85,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/scanner-cli:2.1.5"
+          "default": "aquasec/scanner-cli:2.5"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
