@@ -85,7 +85,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "aquasec/scanner-cli:2.5.1"
+          "default": "aquasec/scanner-cli:2.6.0"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
