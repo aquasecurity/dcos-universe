@@ -1,12 +1,12 @@
 {
   "packagingVersion": "3.0",
-  "description": "Aqua Container Security Platform - web interface component.\n\nThe Aqua Container Security Platform provides full development-to-production lifecycle controls for securing containerized applications, running on-premises or in the cloud, on Windows or Linux.\n\n\n",
+  "description": "Aqua Container Security Platform - server component.\n\nThe Aqua Container Security Platform provides full development-to-production lifecycle controls for securing containerized applications, running on-premises or in the cloud, on Windows or Linux.\n\n\n",
   "framework": false,
   "maintainer": "support@aquasec.com",
   "name": "aqua-web",
   "preInstallNotes": "Set up postgres service first, then use advanced install to add license key.",
-  "postInstallNotes": "Aqua web has been installed. You can now install the gateway.",
-  "postUninstallNotes": "Aqua web containers have been uninstalled.",
+  "postInstallNotes": "Aqua server has been installed. You can now install the gateway.",
+  "postUninstallNotes": "Aqua server container have been uninstalled.",
   "tags": [
     "aqua",
     "security"
