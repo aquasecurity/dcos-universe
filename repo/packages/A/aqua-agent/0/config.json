@@ -43,6 +43,7 @@
     },
     "aqua_config": {
       "description": "Environment configuration for Aqua Agent",
+	  "type": "object",
       "properties": {
         "aqua_token": {
           "description": "Token for agent communication with the gateway",
