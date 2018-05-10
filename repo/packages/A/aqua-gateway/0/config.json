@@ -33,6 +33,7 @@
     },
     "database": {
       "description": "Primary database configuration for Aqua",
+      "type": "object",
       "properties": {
         "database_user": {
           "description": "Aqua's primary database username",
@@ -70,6 +71,7 @@
     },
     "audit_database": {
       "description": "Provides configuration for Aqua's auditing database",
+      "type": "object",
       "properties": {
         "audit_database_user": {
           "description": "Aqua's audit database username",

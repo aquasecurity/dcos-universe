@@ -42,6 +42,7 @@
     },
     "database": {
       "description": "Primary database configuration for Aqua",
+      "type": "object",
       "properties": {
         "database_host": {
           "description": "Hostname for Aqua's primary database",
@@ -79,6 +80,7 @@
     },
     "audit_database": {
       "description": "Provides configuration for Aqua's auditing database",
+      "type": "object",
       "properties": {
         "audit_database_host": {
           "description": "Hostname for Aqua's audit database",
