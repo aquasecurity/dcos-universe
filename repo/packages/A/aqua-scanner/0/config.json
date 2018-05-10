@@ -22,7 +22,7 @@
     },
     "aqua-web": {
       "description": "Aqua web interface connection information",
-	  "type": "object",
+      "type": "object",
       "properties": {
         "scanner_user": {
           "description": "Aqua scanning account name",
