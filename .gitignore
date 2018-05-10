@@ -6,5 +6,5 @@ target/
 .idea/*
 tmp/
 repo/packages/T/tests
-
+scripts/docker.tar.gz
 config-reference.md
