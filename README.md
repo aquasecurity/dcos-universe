@@ -25,10 +25,10 @@ Clone this GitHub repository for your own change control management.  Replace ou
 
 Add repository to DC/OS user interface by logging into DC/OS interface and browsing to System -> Repositories tab.  Click the 'Add Repository button'.
 
-![Add repository](http://i.imgur.com/RgjA9oh.png)
+![Add repository](./images/aqua3.0-dcos-master.png)
 
 Include these details:
-* Name:  Aquasec
+* Name:  AquaSecurity
 * URL:   Zip file URL from repository in step one.  Example, for this repo it would be `https://github.com/aquasecurity/dcos-universe/archive/master.zip`
 * Priority:  1 
 
@@ -42,11 +42,11 @@ Browse to 'Universe' section from left hand menu.  You should now have new packa
 
 Create a Postgres instance named 'aqua-db' by searching for 'Postgres' in the Universe.  
 
-![Postgres](http://i.imgur.com/PZsG8cK.png)
+![Postgres](./images/aqua3.0-dcos-postgre.png)
   
 Change the service name to 'aqua-db':
 
-![aqua-db](http://i.imgur.com/iuErsNe.png)
+![aqua-db](./images/aqua3.0-dcos-dbname.png)
 
 You should set up persistent storage on the 'storage' section in left hand menu.
 
@@ -76,7 +76,7 @@ Essentially, there are three options:
 
 The default option assumes use of pre-pulled images, but you can change the image name to include your registry or enable the docker config file and specify it's location on the 'docker' tab:
 
-![aqua-web docker configuration](http://i.imgur.com/2BdPoKb.png)
+![aqua-web docker configuration](./images/aqua3.0-dcos-dockerpull.png)
 
 This screen will be the same for other images as well.
 
@@ -98,7 +98,7 @@ Otherwise, if you have changed any settings such as the database service name, d
 
 Go back to the Services tab.  You should have running services now for everything except the agents:
 
-![Services](http://i.imgur.com/7qnSRNN.png)
+![Services](./images/aqua3.0-dcos-services.png)
 
 
 ## Step Six:  Install the agents
@@ -117,8 +117,7 @@ Click back through to Services -> aqua-web, and then click "Open Service" to get
 
 Login, and click the 'Hosts' section on the left hand side of the page.  You should see the agents connected.
 
-![Hosts list](http://i.imgur.com/28S3aG9.png)
-
+![Hosts list](./images/aqua3.0-dcos-host.png)
 
 # Daemon mode scanners
 
@@ -131,7 +130,7 @@ System -> Users.  Click the Create New User button at the top of the page.
 On the resulting screen, enter a username, password (twice), and select the 'Scanner' role from the drop-down menu.  Then click 'Save changes' to save the user.
 
 
-![Set up scanner user](http://i.imgur.com/AdlNlRT.png)
+![Set up scanner user](./images/aqua3.0-dcos-scanneruser.png)
 
 The defaults used by the aqua-scanner service are username 'scanner' with password 'scanner123'. 
 
@@ -141,7 +140,7 @@ To deploy, you can browse to Universe -> aqua-scanner -> Install.  You can click
 The default number of scanner-cli instances is 3.  This can be changed on the first 'service' screen in Advanced Installation:
 
 
-![aqua-scanner advanced install](http://i.imgur.com/Azwfrzy.png)
+![aqua-scanner advanced install](./images/aqua3.0-dcos-scannersetup.png)
 
 Click Review and Install, and then Install to deploy.
 
@@ -149,14 +148,14 @@ You can verify that the scanners are deployed by going back to the Aqua console 
 
 The scanners will be listed on the right-hand side.  By default there will be 1 scanner included in aqua web.  If you added three in the aqua-scanner service then this will show 4 scanners total.
 
-![Scanner list](http://i.imgur.com/5efZc57.png)
+![Scanner list](./images/aqua3.0-dcos-scanners.png)
 
 
 In DC/OS you can scale this up and down as needed on the Service page.
 
 To do so, click Service -> aqua-scanner -> Scale button.  You can set this to a higher or lower value to increase or decrease number of scanners.
 
-![Scale scanners](http://i.imgur.com/tR78uqj.png)
+![Scale scanners](./images/aqua3.0-dcos-scale.png)
 
 It can take several minutes for a scanner to disappear from the scan queue after it is removed, but new scanners will show up immediately.
 
