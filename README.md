@@ -36,8 +36,7 @@ Click 'Add' to store it.
 
 Browse to 'Universe' section from left hand menu.  You should now have new packages:
 
-![Universe packages](http://i.imgur.com/VgaJxid.png)
-
+![Universe packages](./images/aqua3.0-dcos-tile.png)
 
 ## Step three: Deploy database
 
@@ -45,11 +44,11 @@ Create a Postgres instance named 'aqua-db' by searching for 'Postgres' in the Un
 
 ![Postgres](http://i.imgur.com/PZsG8cK.png)
   
-You should change the service name to 'aqua-db':
+Change the service name to 'aqua-db':
 
 ![aqua-db](http://i.imgur.com/iuErsNe.png)
 
-You can set up persistent storage on the 'storage' section in left hand menu.
+You should set up persistent storage on the 'storage' section in left hand menu.
 
 Click 'Review and Install' and then 'Install' to deploy the database.
 
@@ -63,16 +62,17 @@ When aqua-db is running, click back to Universe section and click 'Install' on '
 
 At a minimum, you will need to enter a license key.
 
-![aqua-web license](http://i.imgur.com/FF1TcNW.png)
+![aqua-web license](./images/aqua3.0-dcos-license.png)
 
-You will also need to decide how you will get the images into the environment.  The Aqua images are hosted in private Docker Hub repositories, but you are free to push them to an internal registry if you like (this is how most customers deploy).
+You will also need to decide how you will get the images into the environment.  The Aqua images are hosted in private Docker Hub repositories, however you are free to push them to an internal registry if you like (this is a common enterprise scenerio).
 
 DC/OS and Marathon has some interesting behavior around authentication to private registries.  You can see this documented [here](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html).
 
 Essentially, there are three options:
 - Push images to a registry that does not require authentication and then specify the image name in configuration settings.
 - Pre-pull the images on each server.  Images will run from cache this way so there is no need to pull them again.  Credentials can be removed after pull.
-- Create and distribute a docker config tarball per the [Marathon documentation](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) with a credential to Docker Hub that will allow access to the images.  
+- Create and distribute a docker config tarball per the [Marathon documentation](https://mesosphere.github.io/marathon/docs/native-docker-private-registry.html) with a credential to Docker Hub that will allow access to the images.
+- Note: An example helper script named deployDockerCreds.sh is located in the ./scripts directory. Edit this script to match your environment.
 
 The default option assumes use of pre-pulled images, but you can change the image name to include your registry or enable the docker config file and specify it's location on the 'docker' tab:
 
