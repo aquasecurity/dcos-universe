@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "gateway": "aquasec/scanner-cli:3.0"
+        "gateway": "aquasec/scanner-cli:3.2"
       }
     }
   }
