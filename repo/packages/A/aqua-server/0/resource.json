@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "server": "aquasec/server:3.2"
+        "server": "registry.aquasec.com/server:3.5"
       }
     }
   }
