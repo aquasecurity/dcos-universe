@@ -103,7 +103,6 @@
   },
   "healthChecks": [
     {{#docker.healthcheck_enabled}}
-        <!-- See https://issues.apache.org/jira/browse/MESOS-3136 -->
     {
       "protocol": "COMMAND",
       "command": { "value": "./slkinst docker-version | grep \"Aqua Security\"" },
