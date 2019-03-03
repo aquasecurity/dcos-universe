@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "agent": "registry.aquasec.com/agent:3.5"
+        "agent": "registry.aquasec.com/agent:4.0"
       }
     }
   }
