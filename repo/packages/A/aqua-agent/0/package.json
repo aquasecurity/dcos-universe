@@ -1,5 +1,5 @@
 {
-  "packagingVersion": "3.0",
+  "packagingVersion": "4.0",
   "description": "Aqua CSP - Agent",
   "framework": false,
   "maintainer": "support@aquasec.com",
@@ -13,6 +13,6 @@
     "security"
   ],
   "selected": false,
-  "version": "3.0",
+  "version": "4.0",
   "website": "https://www.aquasec.com/"
 }

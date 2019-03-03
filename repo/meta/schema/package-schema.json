@@ -108,7 +108,7 @@
       "properties": {
         "packagingVersion": {
           "type": "string",
-          "enum": ["3.0"]
+          "enum": ["4.0"]
         },
         "name": {
           "type": "string"
