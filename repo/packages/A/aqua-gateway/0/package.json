@@ -1,5 +1,5 @@
 {
-  "packagingVersion": "3.0",
+  "packagingVersion": "4.0",
   "description": "Aqua CSP - Gateway",
   "framework": false,
   "maintainer": "support@aquasec.com",
@@ -12,7 +12,7 @@
     "aqua",
     "security"
   ],
-  "version": "3.0",
+  "version": "4.0",
   "website": "https://www.aquasec.com/",
   "selected": false
 }

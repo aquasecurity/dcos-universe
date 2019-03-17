@@ -1,5 +1,5 @@
 {
-  "packagingVersion": "3.0",
+  "packagingVersion": "4.0",
   "description": "Aqua Container Security Platform - server component.\n\nThe Aqua Container Security Platform provides full development-to-production lifecycle controls for securing containerized applications, running on-premises or in the cloud, on Windows or Linux.\n\n\n",
   "framework": false,
   "maintainer": "support@aquasec.com",
@@ -11,7 +11,7 @@
     "aqua",
     "security"
   ],
-  "version": "3.0",
+  "version": "4.0",
   "website": "https://www.aquasec.com/",
   "selected": false
 }
