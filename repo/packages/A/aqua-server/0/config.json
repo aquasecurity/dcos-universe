@@ -177,7 +177,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "registry.aquasec.com/server:4.0"
+          "default": "registry.aquasec.com/server:4.2"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
