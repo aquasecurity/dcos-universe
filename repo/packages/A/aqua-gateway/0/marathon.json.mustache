@@ -31,7 +31,8 @@
     "SCALOCK_GATEWAY_PUBLIC_IP": "{{service.public_address}}",
     "SCALOCK_GATEWAY_PRIVATE_IP": "$LIBPROCESS_IP",
     "HEALTH_MONITOR": "0.0.0.0:80",
-    "SCALOCK_LOG_LEVEL": "{{advanced.log_level}}"
+    "SCALOCK_LOG_LEVEL": "{{advanced.log_level}}",
+	"AQUA_CONSOLE_SECURE_ADDRESS": "{{ aqua-web.aqua_host }}:443"
   },
   "container": {
     "type": "DOCKER",
