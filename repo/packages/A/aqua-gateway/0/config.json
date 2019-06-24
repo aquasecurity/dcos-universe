@@ -114,7 +114,7 @@
         "host": {
           "description": "aqua-web host",
           "type": "string",
-          "default": "aqua-db.marathon.l4lb.thisdcos.directory"
+          "default": "aqua-web.marathon.l4lb.thisdcos.directory"
         }
       },
       "required": [

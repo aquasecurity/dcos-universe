@@ -34,7 +34,7 @@
         "sslport": {
           "description": "Aqua Web ssl port",
           "type": "integer",
-          "default": 443
+          "default": 8443
         }
       },
       "required": [
