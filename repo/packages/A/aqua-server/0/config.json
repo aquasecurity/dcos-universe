@@ -30,6 +30,11 @@
           "description": "Accepted resource role restriction for service",
           "type": "integer",
           "default": 8084
+        },
+        "sslport": {
+          "description": "Aqua Web ssl port",
+          "type": "integer",
+          "default": 443
         }
       },
       "required": [
@@ -37,7 +42,8 @@
         "cpus",
         "mem",
         "accepted_resource_roles",
-        "port"
+        "port",
+        "sslport"
       ]
     },
     "database": {

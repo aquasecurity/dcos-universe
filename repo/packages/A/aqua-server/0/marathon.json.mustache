@@ -63,6 +63,13 @@
             "VIP_0": "/aqua-web:{{service.port}}"
           },
           "name": "aqua-web"
+        },
+        {
+          "servicePort": {{service.sslport}},
+          "hostPort": {{service.sslport}},
+          "containerPort": 8443,
+          "protocol": "tcp",
+          "name": "aqua-web-ssl"
         }
       ],
       "parameters": [
