@@ -7,7 +7,7 @@
   "assets": {
     "container": {
       "docker": {
-        "gateway": "registry.aquasec.com/scanner:4.0"
+        "gateway": "registry.aquasec.com/scanner:4.2"
       }
     }
   }

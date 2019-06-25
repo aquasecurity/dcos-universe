@@ -13,13 +13,13 @@
           "description": "CPU allocation for the Aqua Web instance",
           "type": "number",
           "default": 1.0,
-          "minimum": 0.15
+          "minimum": 1.0
         },
         "mem": {
           "description": "Memory (MB) allocation for the Aqua Web instance",
           "type": "number",
           "default": 1536.0,
-          "minimum": 256.0
+          "minimum": 1024.0
         },
         "accepted_resource_roles": {
           "description": "Accepted resource role restriction for service",
@@ -30,6 +30,11 @@
           "description": "Accepted resource role restriction for service",
           "type": "integer",
           "default": 8084
+        },
+        "sslport": {
+          "description": "Aqua Web ssl port",
+          "type": "integer",
+          "default": 8443
         }
       },
       "required": [
@@ -37,7 +42,8 @@
         "cpus",
         "mem",
         "accepted_resource_roles",
-        "port"
+        "port",
+        "sslport"
       ]
     },
     "database": {
@@ -177,7 +183,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "registry.aquasec.com/server:4.0"
+          "default": "registry.aquasec.com/server:4.2"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",

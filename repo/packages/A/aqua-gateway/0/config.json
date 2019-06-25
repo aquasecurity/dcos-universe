@@ -107,6 +107,20 @@
         "audit_database_password"
       ]
     },
+    "aqua-web": {
+      "description": "Aqua web interface connection information",
+      "type": "object",
+      "properties": {
+        "host": {
+          "description": "aqua-web host",
+          "type": "string",
+          "default": "aqua-web.marathon.l4lb.thisdcos.directory"
+        }
+      },
+      "required": [
+        "host"
+      ]
+    },
     "advanced": {
       "description": "Advanced configuration for Aqua Gateway",
       "type": "object",
@@ -152,7 +166,7 @@
         "image_name": {
           "description": "Image name to use",
           "type": "string",
-          "default": "registry.aquasec.com/gateway:4.0"
+          "default": "registry.aquasec.com/gateway:4.2"
         },
         "always_pull_image": {
           "description": "Always attempt to pull image before deploying",
