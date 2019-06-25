@@ -18,8 +18,8 @@
         "mem": {
           "description": "Memory (MB) allocation for the Aqua Agent instance",
           "type": "number",
-          "default": 256.0,
-          "minimum": 64.0
+          "default": 768.0,
+          "minimum": 512.0
         },
         "instances": {
             "description": "Number of service instances to run in the cluster. A single instance will be run per node in the cluster. Normally, this number should be equal or higher than the number of nodes in the cluster.",

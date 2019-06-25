@@ -13,13 +13,13 @@
           "description": "CPU allocation for the Aqua Web instance",
           "type": "number",
           "default": 1.0,
-          "minimum": 0.15
+          "minimum": 1.0
         },
         "mem": {
           "description": "Memory (MB) allocation for the Aqua Web instance",
           "type": "number",
           "default": 1536.0,
-          "minimum": 256.0
+          "minimum": 1024.0
         },
         "accepted_resource_roles": {
           "description": "Accepted resource role restriction for service",
